@@ -1024,8 +1024,8 @@ transition: .3s ease-in-out;
       flex-direction: column;
   }
   .pluses h1{
-      font-size: 40px;
-      padding: 5px 0;
+      font-size: 38px;
+      padding: 10px 0;
   }
   .pluses {
     width: 100%;
