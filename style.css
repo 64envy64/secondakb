@@ -954,7 +954,7 @@ padding: 10px;
   text-align: center;
 }
 h2 {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 600;
   color: #000000;
   position: relative;
@@ -1169,6 +1169,7 @@ opacity: 1;
 }
 
 .cta h1{
+  font-size: 38px;
   color: #fff;
   margin-bottom: 40px;
   padding: 0;
@@ -1246,6 +1247,7 @@ margin: 0 auto; /* Центрируем блок по горизонтали */
 }
 .partners h2 {
   margin: auto;
+  font-size: 40px;
   text-align: center;
   color: #100629;
 }
