@@ -324,8 +324,8 @@ opacity: 0;
 }
 
 .preloader {
-    align-items: flex-start; /* Align to the start on mobile */
-    text-align: left; /* Align text to the left on mobile */
+    align-items: center; /* Align to the start on mobile */
+    text-align: center; /* Align text to the left on mobile */
 }
 }
 .sub-header {
@@ -338,10 +338,6 @@ text-align: center;
 position: relative;
 overflow: hidden;
 color: #fff;
-background-attachment: fixed;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
 }
 .sub-header h1 {
   font-size: 3vw;
