@@ -231,10 +231,11 @@ color: #fff;
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
+padding-top: 40px;
 }
 .questions-container{
 max-width: 91vh;
-margin: 0 auto 80px;
+margin: 0 auto;
 }
 .accordion-text .title {
 font-size: 35px;
@@ -941,7 +942,7 @@ margin-bottom: 10px;
 
 .pluses p {
 color: #c4c4c4;
-font-size: 18px;
+font-size: 17px;
 font-weight: 500;
 line-height: 22px;
 padding: 10px;
@@ -1073,7 +1074,6 @@ transition: opacity 3s ease-in-out;
 
 .campus p {
 color: #d4d4d4;
-font-size: 17px;
 }
 
 .campus h2::before {
