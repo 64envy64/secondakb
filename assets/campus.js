@@ -1,33 +1,53 @@
-window.addEventListener("scroll", setScrollVar)
-window.addEventListener("resize", setScrollVar)
+let items = document.querySelectorAll('.slider .list .item');
+let next = document.getElementById('next');
+let prev = document.getElementById('prev');
+let thumbnails = document.querySelectorAll('.thumbnail .item');
 
-function setScrollVar() {
-  const htmlElement = document.documentElement
-  const percentOfScreenHeightScrolled =
-    htmlElement.scrollTop / htmlElement.clientHeight
-  console.log(Math.min(percentOfScreenHeightScrolled * 100, 100))
-  htmlElement.style.setProperty(
-    "--scroll",
-    Math.min(percentOfScreenHeightScrolled * 100, 100)
-  )
+// config param
+let countItem = items.length;
+let itemActive = 0;
+// event next click
+next.onclick = function(){
+    itemActive = itemActive + 1;
+    if(itemActive >= countItem){
+        itemActive = 0;
+    }
+    showSlider();
+}
+//event prev click
+prev.onclick = function(){
+    itemActive = itemActive - 1;
+    if(itemActive < 0){
+        itemActive = countItem - 1;
+    }
+    showSlider();
+}
+// auto run slider
+let refreshInterval = setInterval(() => {
+    next.click();
+}, 6000)
+function showSlider(){
+    // remove item active old
+    let itemActiveOld = document.querySelector('.slider .list .item.active');
+    let thumbnailActiveOld = document.querySelector('.thumbnail .item.active');
+    itemActiveOld.classList.remove('active');
+    thumbnailActiveOld.classList.remove('active');
+
+    // active new item
+    items[itemActive].classList.add('active');
+    thumbnails[itemActive].classList.add('active');
+
+    // clear auto time run slider
+    clearInterval(refreshInterval);
+    refreshInterval = setInterval(() => {
+        next.click();
+    }, 5000)
 }
 
-setScrollVar()
-
-const observer = new IntersectionObserver(entries => {
-  for (let i = entries.length - 1; i >= 0; i--) {
-    const entry = entries[i]
-    if (entry.isIntersecting) {
-      document.querySelectorAll("[data-img]").forEach(img => {
-        img.classList.remove("show")
-      })
-      const img = document.querySelector(entry.target.dataset.imgToShow)
-      img?.classList.add("show")
-      break
-    }
-  }
-})
-
-document.querySelectorAll("[data-img-to-show]").forEach(section => {
-  observer.observe(section)
+// click thumbnail
+thumbnails.forEach((thumbnail, index) => {
+    thumbnail.addEventListener('click', () => {
+        itemActive = index;
+        showSlider();
+    })
 })
